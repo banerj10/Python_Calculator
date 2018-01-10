@@ -1,14 +1,14 @@
-import tkinter
+import tkinter as tk
 
 class Calculator:
 
     def __init__(self, master):
 
             # frame widget created as container for other widgets
-        frame = Frame(master)
+        frame = tk.Frame(master)
             # frame uses grid geometry, N+E+W+S sticky makes frame expand
             # on all sides when window is resized
-        frame.grid(sticky=N+E+W+S)
+        frame.grid(sticky=tk.N+tk.E+tk.W+tk.S)
 
             # define and initialize variables for calculator class
             # first_val and second_val are the two numbers being operated on
@@ -18,12 +18,12 @@ class Calculator:
         self.operand = "="       
 
             # calculator display as a label widget
-        self.display = Label(
-            frame, text=str(self.first_val), font=("Verdana", 12), anchor=E, justify=RIGHT, \
+        self.display = tk.Label(
+            frame, text=str(self.first_val), font=("Verdana", 12), anchor=tk.E, justify=tk.RIGHT, \
             fg="black", bg = "white")
             # position calculator display using grid geometry
         self.display.grid(row=0, column=0, columnspan=3, padx = 3, pady = 6, \
-        sticky=N+E+W+S)
+        sticky=tk.N+tk.E+tk.W+tk.S)
 
             # variables used as offsets for grid row/column placement
             # useful if more buttons are to be added (or removed) later
@@ -33,50 +33,50 @@ class Calculator:
             # note that the command (for button press) uses lambda functions
             # this is required to ensure evaluation only happens during
             # runtime when the corresponding button is pressed
-        self.num7 = Button(frame, text="7", command=lambda: self.num_press("7"))
-        self.num7.grid(row=i+0, column=j+0, padx = 3, pady = 3, sticky=N+E+W+S)
-        self.num8 = Button(frame, text="8", command=lambda: self.num_press("8"))
-        self.num8.grid(row=i+0, column=j+1, padx = 3, pady = 3, sticky=N+E+W+S)
-        self.num9 = Button(frame, text="9", command=lambda: self.num_press("9"))
-        self.num9.grid(row=i+0, column=j+2, padx = 3, pady = 3, sticky=N+E+W+S)
-        self.num4 = Button(frame, text="4", command=lambda: self.num_press("4"))
-        self.num4.grid(row=i+1, column=j+0, padx = 3, pady = 3, sticky=N+E+W+S)
-        self.num5 = Button(frame, text="5", command=lambda: self.num_press("5"))
-        self.num5.grid(row=i+1, column=j+1, padx = 3, pady = 3, sticky=N+E+W+S)
-        self.num6 = Button(frame, text="6", command=lambda: self.num_press("6"))
-        self.num6.grid(row=i+1, column=j+2, padx = 3, pady = 3, sticky=N+E+W+S)
-        self.num1 = Button(frame, text="1", command=lambda: self.num_press("1"))
-        self.num1.grid(row=i+2, column=j+0, padx = 3, pady = 3, sticky=N+E+W+S)
-        self.num2 = Button(frame, text="2", command=lambda: self.num_press("2"))
-        self.num2.grid(row=i+2, column=j+1, padx = 3, pady = 3, sticky=N+E+W+S)
-        self.num3 = Button(frame, text="3", command=lambda: self.num_press("3"))
-        self.num3.grid(row=i+2, column=j+2, padx = 3, pady = 3, sticky=N+E+W+S)
+        self.num7 = tk.Button(frame, text="7", command=lambda: self.num_press("7"))
+        self.num7.grid(row=i+0, column=j+0, padx = 3, pady = 3, sticky=tk.N+tk.E+tk.W+tk.S)
+        self.num8 = tk.Button(frame, text="8", command=lambda: self.num_press("8"))
+        self.num8.grid(row=i+0, column=j+1, padx = 3, pady = 3, sticky=tk.N+tk.E+tk.W+tk.S)
+        self.num9 = tk.Button(frame, text="9", command=lambda: self.num_press("9"))
+        self.num9.grid(row=i+0, column=j+2, padx = 3, pady = 3, sticky=tk.N+tk.E+tk.W+tk.S)
+        self.num4 = tk.Button(frame, text="4", command=lambda: self.num_press("4"))
+        self.num4.grid(row=i+1, column=j+0, padx = 3, pady = 3, sticky=tk.N+tk.E+tk.W+tk.S)
+        self.num5 = tk.Button(frame, text="5", command=lambda: self.num_press("5"))
+        self.num5.grid(row=i+1, column=j+1, padx = 3, pady = 3, sticky=tk.N+tk.E+tk.W+tk.S)
+        self.num6 = tk.Button(frame, text="6", command=lambda: self.num_press("6"))
+        self.num6.grid(row=i+1, column=j+2, padx = 3, pady = 3, sticky=tk.N+tk.E+tk.W+tk.S)
+        self.num1 = tk.Button(frame, text="1", command=lambda: self.num_press("1"))
+        self.num1.grid(row=i+2, column=j+0, padx = 3, pady = 3, sticky=tk.N+tk.E+tk.W+tk.S)
+        self.num2 = tk.Button(frame, text="2", command=lambda: self.num_press("2"))
+        self.num2.grid(row=i+2, column=j+1, padx = 3, pady = 3, sticky=tk.N+tk.E+tk.W+tk.S)
+        self.num3 = tk.Button(frame, text="3", command=lambda: self.num_press("3"))
+        self.num3.grid(row=i+2, column=j+2, padx = 3, pady = 3, sticky=tk.N+tk.E+tk.W+tk.S)
 
-        self.num0 = Button(frame, text="0", command=lambda: self.num_press("0"))
-        self.num0.grid(row=i+2, column=j+3, padx = 3, pady = 3, sticky=N+E+W+S)
+        self.num0 = tk.Button(frame, text="0", command=lambda: self.num_press("0"))
+        self.num0.grid(row=i+2, column=j+3, padx = 3, pady = 3, sticky=tk.N+tk.E+tk.W+tk.S)
 
-        self.dlt = Button(frame, text="DLT", command=lambda: self.dlt_press())
-        self.dlt.grid(row=i-1, column=j+3, padx = 3, pady = 3, sticky=N+E+W+S)
-        self.clr = Button(frame, text="CLR", command=lambda: self.clr_press())
-        self.clr.grid(row=i-1, column=j+4, padx = 3, pady = 3, sticky=N+E+W+S)
+        self.dlt = tk.Button(frame, text="DLT", command=lambda: self.dlt_press())
+        self.dlt.grid(row=i-1, column=j+3, padx = 3, pady = 3, sticky=tk.N+tk.E+tk.W+tk.S)
+        self.clr = tk.Button(frame, text="CLR", command=lambda: self.clr_press())
+        self.clr.grid(row=i-1, column=j+4, padx = 3, pady = 3, sticky=tk.N+tk.E+tk.W+tk.S)
 
-        self.add = Button(frame, text=" + ", command=lambda: self.op_press("+"))
-        self.add.grid(row=i+0, column=j+3, padx = 3, pady = 3, sticky=N+E+W+S)
-        self.sub = Button(frame, text=" - ", command=lambda: self.op_press("-"))
-        self.sub.grid(row=i+0, column=j+4, padx = 3, pady = 3, sticky=N+E+W+S)
-        self.mul = Button(frame, text=" * ", command=lambda: self.op_press("*"))
-        self.mul.grid(row=i+1, column=j+3, padx = 3, pady = 3, sticky=N+E+W+S)
-        self.div = Button(frame, text=" / ", command=lambda: self.op_press("/"))
-        self.div.grid(row=i+1, column=j+4, padx = 3, pady = 3, sticky=N+E+W+S)
-        self.eql = Button(frame, text=" = ", command=lambda: self.eql_press())
-        self.eql.grid(row=i+2, column=j+4, padx = 3, pady = 3, sticky=N+E+W+S)
+        self.add = tk.Button(frame, text=" + ", command=lambda: self.op_press("+"))
+        self.add.grid(row=i+0, column=j+3, padx = 3, pady = 3, sticky=tk.N+tk.E+tk.W+tk.S)
+        self.sub = tk.Button(frame, text=" - ", command=lambda: self.op_press("-"))
+        self.sub.grid(row=i+0, column=j+4, padx = 3, pady = 3, sticky=tk.N+tk.E+tk.W+tk.S)
+        self.mul = tk.Button(frame, text=" * ", command=lambda: self.op_press("*"))
+        self.mul.grid(row=i+1, column=j+3, padx = 3, pady = 3, sticky=tk.N+tk.E+tk.W+tk.S)
+        self.div = tk.Button(frame, text=" / ", command=lambda: self.op_press("/"))
+        self.div.grid(row=i+1, column=j+4, padx = 3, pady = 3, sticky=tk.N+tk.E+tk.W+tk.S)
+        self.eql = tk.Button(frame, text=" = ", command=lambda: self.eql_press())
+        self.eql.grid(row=i+2, column=j+4, padx = 3, pady = 3, sticky=tk.N+tk.E+tk.W+tk.S)
 
         # gives each element in frame a non-zero weight in order
         # to allow proper resizing if window is resized
         for p in range(5):
-            Grid.columnconfigure(frame, p, weight=1)
+            tk.Grid.columnconfigure(frame, p, weight=1)
         for q in range(4):
-            Grid.rowconfigure(frame, q, weight=1)
+            tk.Grid.rowconfigure(frame, q, weight=1)
 
         # method for changing display when a number button is pressed
     def num_press(self, number):
@@ -159,11 +159,11 @@ class Calculator:
 if __name__ == "__main__":
     
         # create root window
-    root = Tk()
+    root = tk.Tk()
     root.wm_title("Simple Calculator")
         # assign weight root grid (not really needed in this case)
-    Grid.columnconfigure(root, 0, weight=1)
-    Grid.rowconfigure(root, 0, weight=1)
+    tk.Grid.columnconfigure(root, 0, weight=1)
+    tk.Grid.rowconfigure(root, 0, weight=1)
         # create calculator app as child of root
     calc = Calculator(root)
 
