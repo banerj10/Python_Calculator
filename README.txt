@@ -1,4 +1,4 @@
-A simple calculator programmed in python 3.6.0 using the tkinter GUI module.
+A basic arithmetic calculator programmed in python 3.6.0 using the tkinter GUI module.
 
 Can be run using 'python calculator.py' in the windows command line (requires python 3.6.0).
 
